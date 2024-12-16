@@ -191,7 +191,7 @@ class HomeController extends Controller
                         'messages' => [
                             [
                                 'role' => 'system',
-                                'content' => 'You are an expert in creating image generation prompts for AI. Write a highly detailed prompt for generating an AI-generated image based on the following user description.Do not generate more than 600 characters.'
+                                'content' => 'You are an expert in creating image generation prompts for AI. Write a highly detailed prompt for generating an AI-generated image based on the following user description. Ensure it includes artistic style, environment, lighting, camera angle, and colors. Limit to 600 characters.'
                             ],
                             [
                                 'role' => 'user',
