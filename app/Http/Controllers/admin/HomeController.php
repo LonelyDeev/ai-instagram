@@ -184,7 +184,7 @@ class HomeController extends Controller
 
                 if ($request->createImage == 1) {
 
-                    $ImagePrompt = Http::withHeaders([
+                   /* $ImagePrompt = Http::withHeaders([
                         'Authorization' => 'Bearer ' . $api,
                     ])->timeout(200)->post('https://api.openai.com/v1/chat/completions', [
                         'model' => 'gpt-4-turbo',
@@ -200,12 +200,12 @@ class HomeController extends Controller
                         ],
                         'max_tokens' => 300,
                     ]);
-                    $ImagePrompt = $ImagePrompt->json()['choices'][0]['message']['content'];
+                    $ImagePrompt = $ImagePrompt->json()['choices'][0]['message']['content'];*/
 // دریافت متن پست از پاسخ OpenAI
                     $imageResponse = Http::withHeaders([
                         'Authorization' => 'Bearer ' . $api,
                     ])->post('https://api.openai.com/v1/images/generations', [
-                        'prompt' => $ImagePrompt,
+                        'prompt' => $translatedQuery,
                         'n' => 1,
                         'size' => '512x512',
                     ]);
