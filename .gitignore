@@ -5,7 +5,6 @@
 /public/storage
 /public/updates
 /storage/*.key
-/storage/framework
 .env
 .env.backup
 .env.production
