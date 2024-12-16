@@ -326,17 +326,19 @@ class HomeController extends Controller
             if ($th->getMessage() == "title_required") {
                 $message = 'عنوان ضروری است';
             }
-            if ($th->getMessage() == "slug_unique") {
+            elseif ($th->getMessage() == "slug_unique") {
                 $message = 'موضوع بخش تکراری است';
             }
-            if ($th->getMessage() == 'You exceeded your current quota, please check your plan and billing details.') {
+            elseif ($th->getMessage() == 'You exceeded your current quota, please check your plan and billing details.') {
                 $message = trans('messages.invalid_api_maximum');
             }
-            if ($th->getMessage() == 'Undefined array key "choices"') {
+            elseif ($th->getMessage() == 'Undefined array key "choices"') {
                 $message = trans('messages.error_connections');
             }
-            if ($th->getMessage() == 'Incorrect API key provided: ' . helper::checkplan(Auth::user()->id) . '. You can find your API key at https://platform.openai.com/account/api-keys.') {
+            elseif ($th->getMessage() == 'Incorrect API key provided: ' . helper::checkplan(Auth::user()->id) . '. You can find your API key at https://platform.openai.com/account/api-keys.') {
                 $message = trans('messages.invalid_api');
+            }else{
+                $message =$th->getMessage();
             }
             return response()->json(['status' => 0, 'message' => $message], 200);
         }
